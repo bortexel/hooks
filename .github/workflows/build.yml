@@ -13,6 +13,7 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 17
+      - run: chmod +x ./gradlew
       - name: Build and publish with Gradle
         uses: gradle/gradle-build-action@v2
         with:
