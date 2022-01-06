@@ -1,0 +1,22 @@
+name: Java CI with Gradle
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 17
+        uses: actions/setup-java@v1
+        with:
+          java-version: 17
+      - name: Build and publish with Gradle
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: publish
+        env:
+          USERNAME: ${{ secrets.MAVEN_USERNAME }}
+          PASSWORD: ${{ secrets.MAVEN_PASSWORD }}

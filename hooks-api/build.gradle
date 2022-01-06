@@ -17,8 +17,8 @@ publishing {
         maven {
             url = 'https://maven.ruscalworld.ru/releases'
             credentials {
-                username = MavenUsername
-                password = MavenPassword
+                username = MavenUsername.isEmpty() ? System.getenv("USERNAME") : MavenUsername
+                password = MavenPassword.isEmpty() ? System.getenv("PASSWORD") : MavenPassword
             }
         }
     }
