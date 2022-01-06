@@ -1,4 +1,4 @@
-name: Hooks
+name: Bortexel
 version: '${version}'
 main: ru.bortexel.hooks.HooksSpigot
 api-version: 1.18

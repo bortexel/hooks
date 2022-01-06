@@ -1,6 +1,6 @@
 {
     "schemaVersion": 1,
-    "id": "hooks-fabric",
+    "id": "bortexel",
     "version": "${version}",
     "name": "Hooks",
     "description": "Collection of hooks for Bortexel server extensions",

@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+publishing {
+    publications {
+        action(MavenPublication) {
+            groupId = 'ru.bortexel'
+            artifactId = 'hooks-api'
+            version = version
+
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url = 'https://maven.ruscalworld.ru/releases'
+            credentials {
+                username = MavenUsername
+                password = MavenPassword
+            }
+        }
+    }
+}

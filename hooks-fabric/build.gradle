@@ -41,6 +41,9 @@ shadowJar {
     dependencies {
         include(dependency(':hooks-api'))
         include(dependency(':hooks-common'))
+        include(dependency('ru.bortexel:bortexel4j'))
+        include(dependency('com.squareup.okhttp3:okhttp'))
+        include(dependency('com.squareup.okio:okio'))
     }
 }
 

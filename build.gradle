@@ -18,5 +18,14 @@ subprojects {
 
     repositories {
         mavenCentral()
+
+        maven {
+            name = 'RuscalWorld Releases'
+            url = 'https://maven.ruscalworld.ru/releases'
+        }
+    }
+
+    dependencies {
+        implementation 'ru.bortexel:bortexel4j:1.3.21'
     }
 }
