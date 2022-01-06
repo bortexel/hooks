@@ -1,0 +1,54 @@
+import net.fabricmc.loom.task.RemapJarTask
+
+plugins {
+    id 'fabric-loom' version '0.10-SNAPSHOT'
+    id 'maven-publish'
+    id 'com.github.johnrengelman.shadow'
+}
+
+dependencies {
+    api project(':hooks-api')
+    api project(':hooks-common')
+    minecraft 'com.mojang:minecraft:1.18.1'
+    mappings 'net.fabricmc:yarn:1.18.1+build.18:v2'
+    modImplementation 'net.fabricmc:fabric-loader:0.12.12'
+    modImplementation 'net.fabricmc.fabric-api:fabric-api:0.45.2+1.18'
+}
+
+processResources {
+    inputs.property "version", project.version
+    filteringCharset "UTF-8"
+
+    filesMatching('fabric.mod.json') {
+        expand 'version': project.version
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.encoding = 'UTF-8'
+    it.options.release.set(17)
+}
+
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+    archivesBaseName = project.name
+    withSourcesJar()
+}
+
+shadowJar {
+    archiveClassifier.set('all-dev')
+
+    dependencies {
+        include(dependency(':hooks-api'))
+        include(dependency(':hooks-common'))
+    }
+}
+
+task remapShadowJar(type: RemapJarTask, dependsOn: shadowJar) {
+    input.set(shadowJar.archiveFile)
+    archiveFileName = shadowJar.archiveFileName.get().replaceAll("-dev\\.jar\$", ".jar")
+    addNestedDependencies.set(true)
+    remapAccessWidener.set(true)
+}
+
+assemble.dependsOn(remapShadowJar)

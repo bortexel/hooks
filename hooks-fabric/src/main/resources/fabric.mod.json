@@ -1,0 +1,29 @@
+{
+    "schemaVersion": 1,
+    "id": "hooks-fabric",
+    "version": "${version}",
+    "name": "Hooks",
+    "description": "Collection of hooks for Bortexel server extensions",
+    "authors": [
+        "RuscalWorld"
+    ],
+    "contact": {
+        "website": "https://bortexel.ru",
+        "repo": "https://github.com/bortexel/hooks"
+    },
+    "license": "MIT",
+    "environment": "server",
+    "entrypoints": {
+        "main": [
+            "ru.bortexel.hooks.HooksFabric"
+        ]
+    },
+    "mixins": [
+        "hooks-fabric.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=0.12.12",
+        "fabric": "*",
+        "minecraft": "1.18.1"
+    }
+}

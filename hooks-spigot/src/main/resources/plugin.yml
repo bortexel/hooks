@@ -1,0 +1,7 @@
+name: Hooks
+version: '${version}'
+main: ru.bortexel.hooks.HooksSpigot
+api-version: 1.18
+authors: [ RuscalWorld ]
+description: Collection of hooks for Bortexel server extensions
+website: https://bortexel.ru

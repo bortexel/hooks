@@ -1,0 +1,13 @@
+pluginManagement {
+    repositories {
+        maven {
+            name = 'Fabric'
+            url = 'https://maven.fabricmc.net/'
+        }
+        gradlePluginPortal()
+    }
+}
+
+rootProject.name = 'hooks'
+
+include 'hooks-api', 'hooks-common', 'hooks-spigot', 'hooks-fabric', 'hooks-velocity'
