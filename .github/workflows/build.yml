@@ -21,3 +21,12 @@ jobs:
         env:
           USERNAME: ${{ secrets.MAVEN_USERNAME }}
           PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifacts
+          path: |
+            hooks-api/build/libs/hooks-api-*.jar
+            hooks-fabric/build/libs/hooks-fabric-*-all.jar
+            hooks-spigot/build/libs/hooks-spigot-*.jar
+            hooks-velocity/build/libs/hooks-velocity-*-all.jar
