@@ -17,7 +17,7 @@ jobs:
       - name: Build and publish with Gradle
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: publish
+          arguments: build publish
         env:
           USERNAME: ${{ secrets.MAVEN_USERNAME }}
           PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
