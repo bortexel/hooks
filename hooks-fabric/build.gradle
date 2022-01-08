@@ -6,6 +6,9 @@ plugins {
     id 'com.github.johnrengelman.shadow'
 }
 
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
+
 dependencies {
     api project(':hooks-api')
     api project(':hooks-common')
