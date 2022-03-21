@@ -10,4 +10,5 @@ pluginManagement {
 
 rootProject.name = 'hooks'
 
-include 'hooks-api', 'hooks-common', 'hooks-spigot', 'hooks-fabric', 'hooks-velocity'
+include ':hooks-api',
+        ':distributions:common', ':distributions:spigot', ':distributions:fabric', ':distributions:velocity'

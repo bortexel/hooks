@@ -11,7 +11,7 @@ targetCompatibility = JavaVersion.VERSION_17
 
 dependencies {
     api project(':hooks-api')
-    api project(':hooks-common')
+    api project(':distributions:common')
     minecraft 'com.mojang:minecraft:1.18.1'
     mappings 'net.fabricmc:yarn:1.18.1+build.18:v2'
     modImplementation 'net.fabricmc:fabric-loader:0.12.12'
@@ -43,7 +43,7 @@ shadowJar {
 
     dependencies {
         include(dependency(':hooks-api'))
-        include(dependency(':hooks-common'))
+        include(dependency(':distributions:common'))
         include(dependency('ru.bortexel:bortexel4j'))
         include(dependency('com.squareup.okhttp3:okhttp'))
         include(dependency('com.squareup.okio:okio'))

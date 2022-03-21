@@ -1,0 +1,22 @@
+subprojects {
+    var isFabric = project.getTasksByName('remapShadowJar', true).size() > 0
+    var isCommon = project.name == 'common'
+
+    task collect (type: Copy) {
+        if (!isCommon) {
+            from isFabric ? remapShadowJar : shadowJar
+            into '../../build/libs'
+            rename { name -> "hooks-${ name.replace('-all', '') }" }
+        }
+    }
+
+    if (isFabric) {
+        collect.dependsOn remapShadowJar
+        remapShadowJar.finalizedBy collect
+    } else if (!isCommon) {
+        collect.dependsOn shadowJar
+        shadowJar.finalizedBy collect
+    }
+}
+
+jar.enabled = false

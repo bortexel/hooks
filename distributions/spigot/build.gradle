@@ -15,8 +15,8 @@ repositories {
 
 dependencies {
     api project(':hooks-api')
-    api project(':hooks-common')
-    compileOnly 'org.spigotmc:spigot-api:1.18.1-R0.1-SNAPSHOT'
+    api project(':distributions:common')
+    compileOnly 'org.spigotmc:spigot-api:1.18.2-R0.1-SNAPSHOT'
 }
 
 processResources {
@@ -32,7 +32,7 @@ processResources {
 shadowJar {
     dependencies {
         include(dependency(':hooks-api'))
-        include(dependency(':hooks-common'))
+        include(dependency(':distributions:common'))
         include(dependency('ru.bortexel:bortexel4j'))
         include(dependency('com.squareup.okhttp3:okhttp'))
         include(dependency('com.squareup.okio:okio'))
