@@ -1,7 +1,7 @@
 import net.fabricmc.loom.task.RemapJarTask
 
 plugins {
-    id 'fabric-loom' version '0.10-SNAPSHOT'
+    id 'fabric-loom'
     id 'maven-publish'
     id 'com.github.johnrengelman.shadow'
 }
@@ -12,10 +12,10 @@ targetCompatibility = JavaVersion.VERSION_17
 dependencies {
     api project(':hooks-api')
     api project(':distributions:common')
-    minecraft 'com.mojang:minecraft:1.18.1'
-    mappings 'net.fabricmc:yarn:1.18.1+build.18:v2'
-    modImplementation 'net.fabricmc:fabric-loader:0.12.12'
-    modImplementation 'net.fabricmc.fabric-api:fabric-api:0.45.2+1.18'
+    minecraft 'com.mojang:minecraft:1.19'
+    mappings 'net.fabricmc:yarn:1.19+build.4:v2'
+    modImplementation 'net.fabricmc:fabric-loader:0.14.6'
+    modImplementation 'net.fabricmc.fabric-api:fabric-api:0.56.1+1.19'
 }
 
 processResources {
@@ -51,10 +51,9 @@ shadowJar {
 }
 
 task remapShadowJar(type: RemapJarTask, dependsOn: shadowJar) {
-    input.set(shadowJar.archiveFile)
+    inputFile.set(shadowJar.archiveFile)
     archiveFileName = shadowJar.archiveFileName.get().replaceAll("-dev\\.jar\$", ".jar")
     addNestedDependencies.set(true)
-    remapAccessWidener.set(true)
 }
 
 assemble.dependsOn(remapShadowJar)

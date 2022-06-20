@@ -1,6 +1,7 @@
 plugins {
-    id 'com.github.johnrengelman.shadow' version '7.0.0' apply false
+    id 'com.github.johnrengelman.shadow' version '7.1.2' apply false
     id 'org.jetbrains.gradle.plugin.idea-ext' version '1.0.1'
+    id 'fabric-loom' version '0.12-SNAPSHOT' apply false
 }
 
 group = 'ru.bortexel'
