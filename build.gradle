@@ -22,7 +22,7 @@ subprojects {
 
         maven {
             name = 'RuscalWorld Releases'
-            url = 'https://maven.ruscalworld.ru/releases'
+            url = 'https://maven.ruscal.world/releases'
         }
     }
 
