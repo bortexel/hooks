@@ -27,6 +27,6 @@ subprojects {
     }
 
     dependencies {
-        implementation 'ru.bortexel:bortexel4j:1.3.21'
+        implementation 'ru.bortexel:bortexel4j:1.3.23'
     }
 }
